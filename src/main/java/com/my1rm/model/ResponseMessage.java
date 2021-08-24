@@ -10,6 +10,7 @@ public class ResponseMessage {
         LANGUAGE_NOT_FOUND,
         USER_NOT_FOUND,
         TOKEN_NOT_FOUND,
+        EXERCISE_NOT_FOUND,
     }
 
     public enum AttemptResponseMessage {
@@ -25,8 +26,13 @@ public class ResponseMessage {
         NAME_INCORRECT_LENGTH,
         NAME_INCORRECT_FORMAT,
         GOAL_INCORRECT_DATA,
+        NAME_ALREADY_EXISTS,
+        MAXIMUM_NUMBER_OF_EXERCISES,
 
         //Success
+        EXERCISE_CREATED,
+        EXERCISE_REMOVED,
+        EXERCISE_UPDATED,
     }
 
     public enum SeasonResponseMessage {
