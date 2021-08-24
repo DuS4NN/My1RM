@@ -30,73 +30,73 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TokenRecord extends UpdatableRecordImpl<TokenRecord> implements Record5<Long, Timestamp, String, String, Long> {
 
-    private static final long serialVersionUID = 620563992;
+    private static final long serialVersionUID = 9629088;
 
     /**
-     * Setter for <code>PUBLIC.TOKEN.ID</code>.
+     * Setter for <code>my1rm.TOKEN.ID</code>.
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.TOKEN.ID</code>.
+     * Getter for <code>my1rm.TOKEN.ID</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.TOKEN.CREATED_AT</code>.
+     * Setter for <code>my1rm.TOKEN.CREATED_AT</code>.
      */
     public void setCreatedAt(Timestamp value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.TOKEN.CREATED_AT</code>.
+     * Getter for <code>my1rm.TOKEN.CREATED_AT</code>.
      */
     public Timestamp getCreatedAt() {
         return (Timestamp) get(1);
     }
 
     /**
-     * Setter for <code>PUBLIC.TOKEN.TOKEN</code>.
+     * Setter for <code>my1rm.TOKEN.TOKEN</code>.
      */
     public void setToken(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.TOKEN.TOKEN</code>.
+     * Getter for <code>my1rm.TOKEN.TOKEN</code>.
      */
     public String getToken() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>PUBLIC.TOKEN.TYPE</code>.
+     * Setter for <code>my1rm.TOKEN.TYPE</code>.
      */
     public void setType(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.TOKEN.TYPE</code>.
+     * Getter for <code>my1rm.TOKEN.TYPE</code>.
      */
     public String getType() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>PUBLIC.TOKEN.USER_ID</code>.
+     * Setter for <code>my1rm.TOKEN.USER_ID</code>.
      */
     public void setUserId(Long value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.TOKEN.USER_ID</code>.
+     * Getter for <code>my1rm.TOKEN.USER_ID</code>.
      */
     public Long getUserId() {
         return (Long) get(4);

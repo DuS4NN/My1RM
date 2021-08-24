@@ -28,45 +28,45 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LanguageRecord extends UpdatableRecordImpl<LanguageRecord> implements Record3<Long, String, String> {
 
-    private static final long serialVersionUID = 1913829943;
+    private static final long serialVersionUID = -1484962733;
 
     /**
-     * Setter for <code>PUBLIC.LANGUAGE.ID</code>.
+     * Setter for <code>my1rm.LANGUAGE.ID</code>.
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.LANGUAGE.ID</code>.
+     * Getter for <code>my1rm.LANGUAGE.ID</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.LANGUAGE.IMAGE_URL</code>.
+     * Setter for <code>my1rm.LANGUAGE.IMAGE_URL</code>.
      */
     public void setImageUrl(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.LANGUAGE.IMAGE_URL</code>.
+     * Getter for <code>my1rm.LANGUAGE.IMAGE_URL</code>.
      */
     public String getImageUrl() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>PUBLIC.LANGUAGE.NAME</code>.
+     * Setter for <code>my1rm.LANGUAGE.NAME</code>.
      */
     public void setName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.LANGUAGE.NAME</code>.
+     * Getter for <code>my1rm.LANGUAGE.NAME</code>.
      */
     public String getName() {
         return (String) get(2);

@@ -30,73 +30,73 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record5<Long, Timestamp, String, String, Byte> {
 
-    private static final long serialVersionUID = 1603571220;
+    private static final long serialVersionUID = 147446262;
 
     /**
-     * Setter for <code>PUBLIC.USER.ID</code>.
+     * Setter for <code>my1rm.USER.ID</code>.
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER.ID</code>.
+     * Getter for <code>my1rm.USER.ID</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER.CREATED_AT</code>.
+     * Setter for <code>my1rm.USER.CREATED_AT</code>.
      */
     public void setCreatedAt(Timestamp value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER.CREATED_AT</code>.
+     * Getter for <code>my1rm.USER.CREATED_AT</code>.
      */
     public Timestamp getCreatedAt() {
         return (Timestamp) get(1);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER.EMAIL</code>.
+     * Setter for <code>my1rm.USER.EMAIL</code>.
      */
     public void setEmail(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER.EMAIL</code>.
+     * Getter for <code>my1rm.USER.EMAIL</code>.
      */
     public String getEmail() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER.PASSWORD</code>.
+     * Setter for <code>my1rm.USER.PASSWORD</code>.
      */
     public void setPassword(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER.PASSWORD</code>.
+     * Getter for <code>my1rm.USER.PASSWORD</code>.
      */
     public String getPassword() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER.VERIFIED</code>.
+     * Setter for <code>my1rm.USER.VERIFIED</code>.
      */
     public void setVerified(Byte value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER.VERIFIED</code>.
+     * Getter for <code>my1rm.USER.VERIFIED</code>.
      */
     public Byte getVerified() {
         return (Byte) get(4);

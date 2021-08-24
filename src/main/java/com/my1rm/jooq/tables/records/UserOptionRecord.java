@@ -28,59 +28,59 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserOptionRecord extends UpdatableRecordImpl<UserOptionRecord> implements Record4<Long, String, Long, Long> {
 
-    private static final long serialVersionUID = 1895396746;
+    private static final long serialVersionUID = -1274945792;
 
     /**
-     * Setter for <code>PUBLIC.USER_OPTION.ID</code>.
+     * Setter for <code>my1rm.USER_OPTION.ID</code>.
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER_OPTION.ID</code>.
+     * Getter for <code>my1rm.USER_OPTION.ID</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER_OPTION.WEIGHT_UNIT</code>.
+     * Setter for <code>my1rm.USER_OPTION.WEIGHT_UNIT</code>.
      */
     public void setWeightUnit(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER_OPTION.WEIGHT_UNIT</code>.
+     * Getter for <code>my1rm.USER_OPTION.WEIGHT_UNIT</code>.
      */
     public String getWeightUnit() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER_OPTION.LANGUAGE_ID</code>.
+     * Setter for <code>my1rm.USER_OPTION.LANGUAGE_ID</code>.
      */
     public void setLanguageId(Long value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER_OPTION.LANGUAGE_ID</code>.
+     * Getter for <code>my1rm.USER_OPTION.LANGUAGE_ID</code>.
      */
     public Long getLanguageId() {
         return (Long) get(2);
     }
 
     /**
-     * Setter for <code>PUBLIC.USER_OPTION.USER_ID</code>.
+     * Setter for <code>my1rm.USER_OPTION.USER_ID</code>.
      */
     public void setUserId(Long value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USER_OPTION.USER_ID</code>.
+     * Getter for <code>my1rm.USER_OPTION.USER_ID</code>.
      */
     public Long getUserId() {
         return (Long) get(3);

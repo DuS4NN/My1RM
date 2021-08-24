@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.AttemptRecord;
 
 import java.sql.Timestamp;
@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Attempt extends TableImpl<AttemptRecord> {
 
-    private static final long serialVersionUID = -751803415;
+    private static final long serialVersionUID = -1735085428;
 
     /**
-     * The reference instance of <code>PUBLIC.ATTEMPT</code>
+     * The reference instance of <code>my1rm.ATTEMPT</code>
      */
     public static final Attempt ATTEMPT = new Attempt();
 
@@ -57,61 +57,61 @@ public class Attempt extends TableImpl<AttemptRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.ID</code>.
+     * The column <code>my1rm.ATTEMPT.ID</code>.
      */
     public final TableField<AttemptRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.CREATED_AT</code>.
+     * The column <code>my1rm.ATTEMPT.DATE</code>.
      */
-    public final TableField<AttemptRecord, Timestamp> CREATED_AT = createField("CREATED_AT", org.jooq.impl.SQLDataType.TIMESTAMP.precision(6), this, "");
+    public final TableField<AttemptRecord, Timestamp> DATE = createField("DATE", org.jooq.impl.SQLDataType.TIMESTAMP.precision(6), this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.REPETITIONS</code>.
+     * The column <code>my1rm.ATTEMPT.REPETITIONS</code>.
      */
     public final TableField<AttemptRecord, Short> REPETITIONS = createField("REPETITIONS", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.SUCCESS</code>.
+     * The column <code>my1rm.ATTEMPT.SUCCESS</code>.
      */
     public final TableField<AttemptRecord, Byte> SUCCESS = createField("SUCCESS", org.jooq.impl.SQLDataType.TINYINT, this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.WEIGHT</code>.
+     * The column <code>my1rm.ATTEMPT.WEIGHT</code>.
      */
-    public final TableField<AttemptRecord, Short> WEIGHT = createField("WEIGHT", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<AttemptRecord, Double> WEIGHT = createField("WEIGHT", org.jooq.impl.SQLDataType.DOUBLE, this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.EXERCISE_ID</code>.
+     * The column <code>my1rm.ATTEMPT.EXERCISE_ID</code>.
      */
     public final TableField<AttemptRecord, Long> EXERCISE_ID = createField("EXERCISE_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.SEASON_ID</code>.
+     * The column <code>my1rm.ATTEMPT.SEASON_ID</code>.
      */
     public final TableField<AttemptRecord, Long> SEASON_ID = createField("SEASON_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>PUBLIC.ATTEMPT.USER_ID</code>.
+     * The column <code>my1rm.ATTEMPT.USER_ID</code>.
      */
     public final TableField<AttemptRecord, Long> USER_ID = createField("USER_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * Create a <code>PUBLIC.ATTEMPT</code> table reference
+     * Create a <code>my1rm.ATTEMPT</code> table reference
      */
     public Attempt() {
         this(DSL.name("ATTEMPT"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.ATTEMPT</code> table reference
+     * Create an aliased <code>my1rm.ATTEMPT</code> table reference
      */
     public Attempt(String alias) {
         this(DSL.name(alias), ATTEMPT);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.ATTEMPT</code> table reference
+     * Create an aliased <code>my1rm.ATTEMPT</code> table reference
      */
     public Attempt(Name alias) {
         this(alias, ATTEMPT);
@@ -134,7 +134,7 @@ public class Attempt extends TableImpl<AttemptRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

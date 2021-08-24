@@ -48,7 +48,7 @@ public class Season {
 
     public static ValidatorResponse isNameValid(String name){
         if(name.length() < 3 || name.length() < 16) return new ValidatorResponse(false, ResponseMessage.SeasonResponseMessage.NAME_INCORRECT_LENGTH);
-        if(!Pattern.compile("[A-Z,a-z,\\-,_,.,0-9]*").matcher(name).matches()) return new ValidatorResponse(false, ResponseMessage.SeasonResponseMessage.NAME_INCORRECT_FORMAT);
+        if(!Pattern.compile("[A-Z,a-z,\\-,_, ,.,0-9]*").matcher(name).matches()) return new ValidatorResponse(false, ResponseMessage.SeasonResponseMessage.NAME_INCORRECT_FORMAT);
 
         return new ValidatorResponse(true, null);
     }

@@ -11,7 +11,7 @@ import org.jooq.impl.SequenceImpl;
 
 
 /**
- * Convenience access to all sequences in PUBLIC
+ * Convenience access to all sequences in my1rm
  */
 @Generated(
     value = {
@@ -24,7 +24,7 @@ import org.jooq.impl.SequenceImpl;
 public class Sequences {
 
     /**
-     * The sequence <code>PUBLIC.HIBERNATE_SEQUENCE</code>
+     * The sequence <code>my1rm.HIBERNATE_SEQUENCE</code>
      */
-    public static final Sequence<Long> HIBERNATE_SEQUENCE = new SequenceImpl<Long>("HIBERNATE_SEQUENCE", Public.PUBLIC, org.jooq.impl.SQLDataType.BIGINT);
+    public static final Sequence<Long> HIBERNATE_SEQUENCE = new SequenceImpl<Long>("HIBERNATE_SEQUENCE", My1rm.MY1RM, org.jooq.impl.SQLDataType.BIGINT);
 }

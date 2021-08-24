@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.SeasonRecord;
 
 import java.sql.Timestamp;
@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Season extends TableImpl<SeasonRecord> {
 
-    private static final long serialVersionUID = -408451120;
+    private static final long serialVersionUID = -1459900666;
 
     /**
-     * The reference instance of <code>PUBLIC.SEASON</code>
+     * The reference instance of <code>my1rm.SEASON</code>
      */
     public static final Season SEASON = new Season();
 
@@ -57,46 +57,46 @@ public class Season extends TableImpl<SeasonRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.SEASON.ID</code>.
+     * The column <code>my1rm.SEASON.ID</code>.
      */
     public final TableField<SeasonRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.SEASON.COLOR</code>.
+     * The column <code>my1rm.SEASON.COLOR</code>.
      */
     public final TableField<SeasonRecord, String> COLOR = createField("COLOR", org.jooq.impl.SQLDataType.VARCHAR(10), this, "");
 
     /**
-     * The column <code>PUBLIC.SEASON.CREATED_AT</code>.
+     * The column <code>my1rm.SEASON.CREATED_AT</code>.
      */
     public final TableField<SeasonRecord, Timestamp> CREATED_AT = createField("CREATED_AT", org.jooq.impl.SQLDataType.TIMESTAMP.precision(6), this, "");
 
     /**
-     * The column <code>PUBLIC.SEASON.NAME</code>.
+     * The column <code>my1rm.SEASON.NAME</code>.
      */
     public final TableField<SeasonRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(15), this, "");
 
     /**
-     * The column <code>PUBLIC.SEASON.USER_ID</code>.
+     * The column <code>my1rm.SEASON.USER_ID</code>.
      */
     public final TableField<SeasonRecord, Long> USER_ID = createField("USER_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * Create a <code>PUBLIC.SEASON</code> table reference
+     * Create a <code>my1rm.SEASON</code> table reference
      */
     public Season() {
         this(DSL.name("SEASON"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.SEASON</code> table reference
+     * Create an aliased <code>my1rm.SEASON</code> table reference
      */
     public Season(String alias) {
         this(DSL.name(alias), SEASON);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.SEASON</code> table reference
+     * Create an aliased <code>my1rm.SEASON</code> table reference
      */
     public Season(Name alias) {
         this(alias, SEASON);
@@ -119,7 +119,7 @@ public class Season extends TableImpl<SeasonRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

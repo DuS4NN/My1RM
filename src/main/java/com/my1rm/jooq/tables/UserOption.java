@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.UserOptionRecord;
 
 import java.util.Arrays;
@@ -40,10 +40,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserOption extends TableImpl<UserOptionRecord> {
 
-    private static final long serialVersionUID = -1626361530;
+    private static final long serialVersionUID = 1430236491;
 
     /**
-     * The reference instance of <code>PUBLIC.USER_OPTION</code>
+     * The reference instance of <code>my1rm.USER_OPTION</code>
      */
     public static final UserOption USER_OPTION = new UserOption();
 
@@ -56,41 +56,41 @@ public class UserOption extends TableImpl<UserOptionRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.USER_OPTION.ID</code>.
+     * The column <code>my1rm.USER_OPTION.ID</code>.
      */
     public final TableField<UserOptionRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.USER_OPTION.WEIGHT_UNIT</code>.
+     * The column <code>my1rm.USER_OPTION.WEIGHT_UNIT</code>.
      */
     public final TableField<UserOptionRecord, String> WEIGHT_UNIT = createField("WEIGHT_UNIT", org.jooq.impl.SQLDataType.VARCHAR(255), this, "");
 
     /**
-     * The column <code>PUBLIC.USER_OPTION.LANGUAGE_ID</code>.
+     * The column <code>my1rm.USER_OPTION.LANGUAGE_ID</code>.
      */
     public final TableField<UserOptionRecord, Long> LANGUAGE_ID = createField("LANGUAGE_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>PUBLIC.USER_OPTION.USER_ID</code>.
+     * The column <code>my1rm.USER_OPTION.USER_ID</code>.
      */
     public final TableField<UserOptionRecord, Long> USER_ID = createField("USER_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * Create a <code>PUBLIC.USER_OPTION</code> table reference
+     * Create a <code>my1rm.USER_OPTION</code> table reference
      */
     public UserOption() {
         this(DSL.name("USER_OPTION"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.USER_OPTION</code> table reference
+     * Create an aliased <code>my1rm.USER_OPTION</code> table reference
      */
     public UserOption(String alias) {
         this(DSL.name(alias), USER_OPTION);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.USER_OPTION</code> table reference
+     * Create an aliased <code>my1rm.USER_OPTION</code> table reference
      */
     public UserOption(Name alias) {
         this(alias, USER_OPTION);
@@ -113,7 +113,7 @@ public class UserOption extends TableImpl<UserOptionRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.ExerciseRecord;
 
 import java.sql.Timestamp;
@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Exercise extends TableImpl<ExerciseRecord> {
 
-    private static final long serialVersionUID = -1289392625;
+    private static final long serialVersionUID = 1844148657;
 
     /**
-     * The reference instance of <code>PUBLIC.EXERCISE</code>
+     * The reference instance of <code>my1rm.EXERCISE</code>
      */
     public static final Exercise EXERCISE = new Exercise();
 
@@ -57,46 +57,46 @@ public class Exercise extends TableImpl<ExerciseRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.EXERCISE.ID</code>.
+     * The column <code>my1rm.EXERCISE.ID</code>.
      */
     public final TableField<ExerciseRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.EXERCISE.CREATED_AT</code>.
+     * The column <code>my1rm.EXERCISE.CREATED_AT</code>.
      */
     public final TableField<ExerciseRecord, Timestamp> CREATED_AT = createField("CREATED_AT", org.jooq.impl.SQLDataType.TIMESTAMP.precision(6), this, "");
 
     /**
-     * The column <code>PUBLIC.EXERCISE.GOAL</code>.
+     * The column <code>my1rm.EXERCISE.GOAL</code>.
      */
-    public final TableField<ExerciseRecord, Short> GOAL = createField("GOAL", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<ExerciseRecord, Double> GOAL = createField("GOAL", org.jooq.impl.SQLDataType.DOUBLE, this, "");
 
     /**
-     * The column <code>PUBLIC.EXERCISE.NAME</code>.
+     * The column <code>my1rm.EXERCISE.NAME</code>.
      */
     public final TableField<ExerciseRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(30), this, "");
 
     /**
-     * The column <code>PUBLIC.EXERCISE.USER_ID</code>.
+     * The column <code>my1rm.EXERCISE.USER_ID</code>.
      */
     public final TableField<ExerciseRecord, Long> USER_ID = createField("USER_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * Create a <code>PUBLIC.EXERCISE</code> table reference
+     * Create a <code>my1rm.EXERCISE</code> table reference
      */
     public Exercise() {
         this(DSL.name("EXERCISE"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.EXERCISE</code> table reference
+     * Create an aliased <code>my1rm.EXERCISE</code> table reference
      */
     public Exercise(String alias) {
         this(DSL.name(alias), EXERCISE);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.EXERCISE</code> table reference
+     * Create an aliased <code>my1rm.EXERCISE</code> table reference
      */
     public Exercise(Name alias) {
         this(alias, EXERCISE);
@@ -119,7 +119,7 @@ public class Exercise extends TableImpl<ExerciseRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

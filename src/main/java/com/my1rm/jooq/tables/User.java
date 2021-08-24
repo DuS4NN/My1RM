@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.UserRecord;
 
 import java.sql.Timestamp;
@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 1482941529;
+    private static final long serialVersionUID = 1978094843;
 
     /**
-     * The reference instance of <code>PUBLIC.USER</code>
+     * The reference instance of <code>my1rm.USER</code>
      */
     public static final User USER = new User();
 
@@ -57,46 +57,46 @@ public class User extends TableImpl<UserRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.USER.ID</code>.
+     * The column <code>my1rm.USER.ID</code>.
      */
     public final TableField<UserRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.USER.CREATED_AT</code>.
+     * The column <code>my1rm.USER.CREATED_AT</code>.
      */
     public final TableField<UserRecord, Timestamp> CREATED_AT = createField("CREATED_AT", org.jooq.impl.SQLDataType.TIMESTAMP.precision(6), this, "");
 
     /**
-     * The column <code>PUBLIC.USER.EMAIL</code>.
+     * The column <code>my1rm.USER.EMAIL</code>.
      */
     public final TableField<UserRecord, String> EMAIL = createField("EMAIL", org.jooq.impl.SQLDataType.VARCHAR(254), this, "");
 
     /**
-     * The column <code>PUBLIC.USER.PASSWORD</code>.
+     * The column <code>my1rm.USER.PASSWORD</code>.
      */
     public final TableField<UserRecord, String> PASSWORD = createField("PASSWORD", org.jooq.impl.SQLDataType.VARCHAR(100), this, "");
 
     /**
-     * The column <code>PUBLIC.USER.VERIFIED</code>.
+     * The column <code>my1rm.USER.VERIFIED</code>.
      */
     public final TableField<UserRecord, Byte> VERIFIED = createField("VERIFIED", org.jooq.impl.SQLDataType.TINYINT.defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
-     * Create a <code>PUBLIC.USER</code> table reference
+     * Create a <code>my1rm.USER</code> table reference
      */
     public User() {
         this(DSL.name("USER"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.USER</code> table reference
+     * Create an aliased <code>my1rm.USER</code> table reference
      */
     public User(String alias) {
         this(DSL.name(alias), USER);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.USER</code> table reference
+     * Create an aliased <code>my1rm.USER</code> table reference
      */
     public User(Name alias) {
         this(alias, USER);
@@ -119,7 +119,7 @@ public class User extends TableImpl<UserRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

@@ -30,73 +30,73 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SeasonRecord extends UpdatableRecordImpl<SeasonRecord> implements Record5<Long, String, Timestamp, String, Long> {
 
-    private static final long serialVersionUID = -1390692005;
+    private static final long serialVersionUID = 361460513;
 
     /**
-     * Setter for <code>PUBLIC.SEASON.ID</code>.
+     * Setter for <code>my1rm.SEASON.ID</code>.
      */
     public void setId(Long value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.SEASON.ID</code>.
+     * Getter for <code>my1rm.SEASON.ID</code>.
      */
     public Long getId() {
         return (Long) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.SEASON.COLOR</code>.
+     * Setter for <code>my1rm.SEASON.COLOR</code>.
      */
     public void setColor(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.SEASON.COLOR</code>.
+     * Getter for <code>my1rm.SEASON.COLOR</code>.
      */
     public String getColor() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>PUBLIC.SEASON.CREATED_AT</code>.
+     * Setter for <code>my1rm.SEASON.CREATED_AT</code>.
      */
     public void setCreatedAt(Timestamp value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.SEASON.CREATED_AT</code>.
+     * Getter for <code>my1rm.SEASON.CREATED_AT</code>.
      */
     public Timestamp getCreatedAt() {
         return (Timestamp) get(2);
     }
 
     /**
-     * Setter for <code>PUBLIC.SEASON.NAME</code>.
+     * Setter for <code>my1rm.SEASON.NAME</code>.
      */
     public void setName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.SEASON.NAME</code>.
+     * Getter for <code>my1rm.SEASON.NAME</code>.
      */
     public String getName() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>PUBLIC.SEASON.USER_ID</code>.
+     * Setter for <code>my1rm.SEASON.USER_ID</code>.
      */
     public void setUserId(Long value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.SEASON.USER_ID</code>.
+     * Getter for <code>my1rm.SEASON.USER_ID</code>.
      */
     public Long getUserId() {
         return (Long) get(4);

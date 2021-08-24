@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.LanguageRecord;
 
 import java.util.Arrays;
@@ -40,10 +40,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Language extends TableImpl<LanguageRecord> {
 
-    private static final long serialVersionUID = -1314297851;
+    private static final long serialVersionUID = 1895156863;
 
     /**
-     * The reference instance of <code>PUBLIC.LANGUAGE</code>
+     * The reference instance of <code>my1rm.LANGUAGE</code>
      */
     public static final Language LANGUAGE = new Language();
 
@@ -56,36 +56,36 @@ public class Language extends TableImpl<LanguageRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.LANGUAGE.ID</code>.
+     * The column <code>my1rm.LANGUAGE.ID</code>.
      */
     public final TableField<LanguageRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.LANGUAGE.IMAGE_URL</code>.
+     * The column <code>my1rm.LANGUAGE.IMAGE_URL</code>.
      */
     public final TableField<LanguageRecord, String> IMAGE_URL = createField("IMAGE_URL", org.jooq.impl.SQLDataType.VARCHAR(100), this, "");
 
     /**
-     * The column <code>PUBLIC.LANGUAGE.NAME</code>.
+     * The column <code>my1rm.LANGUAGE.NAME</code>.
      */
     public final TableField<LanguageRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(20), this, "");
 
     /**
-     * Create a <code>PUBLIC.LANGUAGE</code> table reference
+     * Create a <code>my1rm.LANGUAGE</code> table reference
      */
     public Language() {
         this(DSL.name("LANGUAGE"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.LANGUAGE</code> table reference
+     * Create an aliased <code>my1rm.LANGUAGE</code> table reference
      */
     public Language(String alias) {
         this(DSL.name(alias), LANGUAGE);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.LANGUAGE</code> table reference
+     * Create an aliased <code>my1rm.LANGUAGE</code> table reference
      */
     public Language(Name alias) {
         this(alias, LANGUAGE);
@@ -108,7 +108,7 @@ public class Language extends TableImpl<LanguageRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

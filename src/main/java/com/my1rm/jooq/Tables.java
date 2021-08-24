@@ -16,7 +16,7 @@ import javax.annotation.Generated;
 
 
 /**
- * Convenience access to all tables in PUBLIC
+ * Convenience access to all tables in my1rm
  */
 @Generated(
     value = {
@@ -29,37 +29,37 @@ import javax.annotation.Generated;
 public class Tables {
 
     /**
-     * The table <code>PUBLIC.ATTEMPT</code>.
+     * The table <code>my1rm.ATTEMPT</code>.
      */
     public static final Attempt ATTEMPT = com.my1rm.jooq.tables.Attempt.ATTEMPT;
 
     /**
-     * The table <code>PUBLIC.EXERCISE</code>.
+     * The table <code>my1rm.EXERCISE</code>.
      */
     public static final Exercise EXERCISE = com.my1rm.jooq.tables.Exercise.EXERCISE;
 
     /**
-     * The table <code>PUBLIC.LANGUAGE</code>.
+     * The table <code>my1rm.LANGUAGE</code>.
      */
     public static final Language LANGUAGE = com.my1rm.jooq.tables.Language.LANGUAGE;
 
     /**
-     * The table <code>PUBLIC.SEASON</code>.
+     * The table <code>my1rm.SEASON</code>.
      */
     public static final Season SEASON = com.my1rm.jooq.tables.Season.SEASON;
 
     /**
-     * The table <code>PUBLIC.TOKEN</code>.
+     * The table <code>my1rm.TOKEN</code>.
      */
     public static final Token TOKEN = com.my1rm.jooq.tables.Token.TOKEN;
 
     /**
-     * The table <code>PUBLIC.USER</code>.
+     * The table <code>my1rm.USER</code>.
      */
     public static final User USER = com.my1rm.jooq.tables.User.USER;
 
     /**
-     * The table <code>PUBLIC.USER_OPTION</code>.
+     * The table <code>my1rm.USER_OPTION</code>.
      */
     public static final UserOption USER_OPTION = com.my1rm.jooq.tables.UserOption.USER_OPTION;
 }

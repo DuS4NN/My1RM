@@ -6,7 +6,7 @@ package com.my1rm.jooq.tables;
 
 import com.my1rm.jooq.Indexes;
 import com.my1rm.jooq.Keys;
-import com.my1rm.jooq.Public;
+import com.my1rm.jooq.My1rm;
 import com.my1rm.jooq.tables.records.TokenRecord;
 
 import java.sql.Timestamp;
@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Token extends TableImpl<TokenRecord> {
 
-    private static final long serialVersionUID = 203175645;
+    private static final long serialVersionUID = -2110717257;
 
     /**
-     * The reference instance of <code>PUBLIC.TOKEN</code>
+     * The reference instance of <code>my1rm.TOKEN</code>
      */
     public static final Token TOKEN = new Token();
 
@@ -57,46 +57,46 @@ public class Token extends TableImpl<TokenRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.TOKEN.ID</code>.
+     * The column <code>my1rm.TOKEN.ID</code>.
      */
     public final TableField<TokenRecord, Long> ID = createField("ID", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.TOKEN.CREATED_AT</code>.
+     * The column <code>my1rm.TOKEN.CREATED_AT</code>.
      */
     public final TableField<TokenRecord, Timestamp> CREATED_AT = createField("CREATED_AT", org.jooq.impl.SQLDataType.TIMESTAMP.precision(6), this, "");
 
     /**
-     * The column <code>PUBLIC.TOKEN.TOKEN</code>.
+     * The column <code>my1rm.TOKEN.TOKEN</code>.
      */
     public final TableField<TokenRecord, String> TOKEN_ = createField("TOKEN", org.jooq.impl.SQLDataType.VARCHAR(100), this, "");
 
     /**
-     * The column <code>PUBLIC.TOKEN.TYPE</code>.
+     * The column <code>my1rm.TOKEN.TYPE</code>.
      */
     public final TableField<TokenRecord, String> TYPE = createField("TYPE", org.jooq.impl.SQLDataType.VARCHAR(255), this, "");
 
     /**
-     * The column <code>PUBLIC.TOKEN.USER_ID</code>.
+     * The column <code>my1rm.TOKEN.USER_ID</code>.
      */
     public final TableField<TokenRecord, Long> USER_ID = createField("USER_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * Create a <code>PUBLIC.TOKEN</code> table reference
+     * Create a <code>my1rm.TOKEN</code> table reference
      */
     public Token() {
         this(DSL.name("TOKEN"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.TOKEN</code> table reference
+     * Create an aliased <code>my1rm.TOKEN</code> table reference
      */
     public Token(String alias) {
         this(DSL.name(alias), TOKEN);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.TOKEN</code> table reference
+     * Create an aliased <code>my1rm.TOKEN</code> table reference
      */
     public Token(Name alias) {
         this(alias, TOKEN);
@@ -119,7 +119,7 @@ public class Token extends TableImpl<TokenRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return My1rm.MY1RM;
     }
 
     /**

@@ -25,7 +25,8 @@ public class Attempt {
     private long id;
 
     @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id") @NotNull
+    @JoinColumn(name = "user_id")
+    @NotNull
     private User user;
 
     @ManyToOne(targetEntity = Exercise.class, fetch = FetchType.LAZY)
@@ -50,10 +51,9 @@ public class Attempt {
     @NotNull
     private short repetitions;
 
-    @Column(name = "created_at", columnDefinition = "TIMESTAMP")
+    @Column(name = "date", columnDefinition = "TIMESTAMP")
     @NotNull
-    @CreationTimestamp
-    private Date created_at;
+    private Date date;
 
     public static ValidatorResponse isWeightValid(Float weight){
         if(weight <= 0) return new ValidatorResponse(false, ResponseMessage.AttemptResponseMessage.WEIGHT_INCORRECT_DATA);
