@@ -107,6 +107,8 @@
                     <generator>
                         <database>
                             <name>org.jooq.meta.extensions.jpa.JPADatabase</name>
+                            <inputSchema>PUBLIC</inputSchema>
+                            <outputSchema>my1rm</outputSchema>
                             <properties>
                                 <property>
                                     <key>packages</key>

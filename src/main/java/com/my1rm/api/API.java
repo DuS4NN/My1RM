@@ -25,7 +25,7 @@ public class API {
     private JavaMailSenderImpl mailSender;
 
     public static void catchException(Exception e){
-        Sentry.capture(e);
+        //Sentry.capture(e);
         e.printStackTrace();
     }
 
