@@ -11,6 +11,7 @@ public class ResponseMessage {
         USER_NOT_FOUND,
         TOKEN_NOT_FOUND,
         EXERCISE_NOT_FOUND,
+        MISSING_DATA,
     }
 
     public enum AttemptResponseMessage {

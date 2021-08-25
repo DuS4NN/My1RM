@@ -23,7 +23,6 @@ import java.util.Optional;
 @Service
 public class ExerciseService {
 
-    private UserRepository userRepository;
     private ExerciseRepository exerciseRepository;
     private DSLContext dslContext;
     private EntityManager entityManager;
@@ -49,6 +48,7 @@ public class ExerciseService {
                 .leftJoin(bestUserAttempts)
                     .on(com.my1rm.jooq.tables.Exercise.EXERCISE.ID
                         .eq(DSL.coerce(bestUserAttempts.field("exerciseId"), Long.class)))
+                .where(com.my1rm.jooq.tables.Exercise.EXERCISE.USER_ID.eq(userId))
                 .orderBy(sortField)
                 .fetchInto(GetAllExercisesPOJO.class);
 
@@ -56,19 +56,16 @@ public class ExerciseService {
     }
 
     @Transactional
-    public Response addExercise(Exercise exercise, long userId){
-        Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()) return new Response(ResponseMessage.CommonResponseMessage.USER_NOT_FOUND ,null);
-
-        Optional<Exercise> maybeExercise = exerciseRepository.findByNameAndUser(exercise.getName(), user.get());
+    public Response addExercise(Exercise exercise, User user){
+        Optional<Exercise> maybeExercise = exerciseRepository.findByNameAndUser(exercise.getName(), user);
         if(maybeExercise.isPresent()) return new Response(ResponseMessage.ExerciseResponseMessage.NAME_ALREADY_EXISTS ,null);
 
-        if(exerciseRepository.countAllByUser(user.get()) >= 30) return new Response(ResponseMessage.ExerciseResponseMessage.MAXIMUM_NUMBER_OF_EXERCISES ,null);
+        if(exerciseRepository.countAllByUser(user) >= 30) return new Response(ResponseMessage.ExerciseResponseMessage.MAXIMUM_NUMBER_OF_EXERCISES ,null);
 
         Exercise newExercise = new Exercise();
         newExercise.setGoal(exercise.getGoal());
         newExercise.setName(exercise.getName());
-        newExercise.setUser(user.get());
+        newExercise.setUser(user);
         entityManager.persist(newExercise);
 
         HashMap<String, Object> result = new HashMap<>();
@@ -81,11 +78,8 @@ public class ExerciseService {
     }
 
     @Transactional
-    public Response removeExercise(long exerciseId, long userId){
-        Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()) return new Response(ResponseMessage.CommonResponseMessage.USER_NOT_FOUND ,null);
-
-        Optional<Exercise> exercise = exerciseRepository.findByIdAndUser(exerciseId, user.get());
+    public Response removeExercise(long exerciseId, User user){
+        Optional<Exercise> exercise = exerciseRepository.findByIdAndUser(exerciseId, user);
         if(!exercise.isPresent()) return new Response(ResponseMessage.CommonResponseMessage.EXERCISE_NOT_FOUND, null);
 
         entityManager.remove(exercise.get());
@@ -94,11 +88,8 @@ public class ExerciseService {
     }
 
     @Transactional
-    public Response updateExercise(Exercise exercise, long userId){
-        Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()) return new Response(ResponseMessage.CommonResponseMessage.USER_NOT_FOUND ,null);
-
-        Optional<Exercise> oldExercise = exerciseRepository.findByIdAndUser(exercise.getId(), user.get());
+    public Response updateExercise(Exercise exercise, User user){
+        Optional<Exercise> oldExercise = exerciseRepository.findByIdAndUser(exercise.getId(), user);
         if(!oldExercise.isPresent()) return new Response(ResponseMessage.CommonResponseMessage.EXERCISE_NOT_FOUND, null);
 
         oldExercise.get().setName(exercise.getName());
@@ -106,9 +97,5 @@ public class ExerciseService {
         entityManager.merge(oldExercise.get());
 
         return new Response(ResponseMessage.ExerciseResponseMessage.EXERCISE_UPDATED, null);
-    }
-
-    public Response getExercise(long exerciseId){
-        return null;
     }
 }

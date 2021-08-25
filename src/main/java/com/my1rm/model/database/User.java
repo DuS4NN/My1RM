@@ -61,12 +61,14 @@ public class User {
 
 
     public static ValidatorResponse isPasswordValid(String password){
+        if(password == null) return new ValidatorResponse(false, ResponseMessage.CommonResponseMessage.MISSING_DATA);
         if(password.length() < 4 || password.length() > 20) return new ValidatorResponse(false, ResponseMessage.UserResponseMessage.PASSWORD_INCORRECT_LENGTH);
 
         return new ValidatorResponse(true, null);
     }
 
     public static ValidatorResponse isEmailValid(String email) {
+        if(email == null) return new ValidatorResponse(false, ResponseMessage.CommonResponseMessage.MISSING_DATA);
         if(email.length() > 254) return new ValidatorResponse(false, ResponseMessage.UserResponseMessage.EMAIL_INCORRECT_LENGTH);
         if(!Pattern.compile(".+@.+\\..+").matcher(email).matches()) return new ValidatorResponse(false, ResponseMessage.UserResponseMessage.EMAIL_INCORRECT_FORMAT);
 

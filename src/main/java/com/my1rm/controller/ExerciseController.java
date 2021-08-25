@@ -38,7 +38,7 @@ public class ExerciseController {
             put(ValidationItems.ExerciseName, exercise.getName());
             put(ValidationItems.ExerciseGoal, exercise.getGoal());
         }});
-        return response.orElseGet(() -> exerciseService.addExercise(exercise, user.getId()));
+        return response.orElseGet(() -> exerciseService.addExercise(exercise, user));
     }
 
     @CatchError
@@ -46,7 +46,7 @@ public class ExerciseController {
     @DeleteMapping("/exercise/removeExercise")
     public Response removeExercise(Authentication authentication, @RequestParam(name = "exerciseId") long exerciseId){
         User user = API.getUserFromAuthentication(authentication);
-        return exerciseService.removeExercise(exerciseId, user.getId());
+        return exerciseService.removeExercise(exerciseId, user);
     }
 
     @CatchError
@@ -58,6 +58,6 @@ public class ExerciseController {
             put(ValidationItems.ExerciseName, exercise.getName());
             put(ValidationItems.ExerciseGoal, exercise.getGoal());
         }});
-        return response.orElseGet(() -> exerciseService.updateExercise(exercise, user.getId()));
+        return response.orElseGet(() -> exerciseService.updateExercise(exercise, user));
     }
 }
