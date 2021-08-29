@@ -7,7 +7,6 @@ import com.my1rm.model.database.Exercise;
 import com.my1rm.model.database.User;
 import com.my1rm.model.pojo.ExercisePojo.GetAllExercisesPOJO;
 import com.my1rm.repository.ExerciseRepository;
-import com.my1rm.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.jooq.*;
 import org.jooq.impl.DSL;

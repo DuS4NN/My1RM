@@ -14,5 +14,7 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
 
     Optional<Exercise> findByIdAndUser(long id, User user);
 
+    Optional<Exercise> findFirstByUser(User user);
+
     int countAllByUser(User user);
 }
