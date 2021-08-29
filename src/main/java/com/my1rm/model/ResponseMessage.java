@@ -57,6 +57,7 @@ public class ResponseMessage {
         WRONG_CREDENTIALS,
         UNVERIFIED_ACCOUNT,
         WRONG_PASSWORD,
+        EMAILS_ARE_EQUAL,
 
         //Success
         ACCOUNT_CREATED,

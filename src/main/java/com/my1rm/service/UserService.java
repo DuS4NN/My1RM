@@ -158,6 +158,10 @@ public class UserService {
     @Transactional
     public Response changeEmail(User user, String newEmail, String password){
         if(!argon2PasswordEncoder.matches(password, user.getPassword())) return new Response(ResponseMessage.UserResponseMessage.WRONG_PASSWORD,null);
+        if(user.getEmail().equals(newEmail)) return new Response(ResponseMessage.UserResponseMessage.EMAILS_ARE_EQUAL,null);
+        Optional<User> maybeUser = userRepository.findByEmail(newEmail);
+        if(maybeUser.isPresent()) return new Response(ResponseMessage.UserResponseMessage.EMAIL_ALREADY_EXISTS, null);
+
         String oldEmail = user.getEmail();
 
         user.setEmail(newEmail);
