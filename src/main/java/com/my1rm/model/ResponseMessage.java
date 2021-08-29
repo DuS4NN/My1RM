@@ -56,6 +56,7 @@ public class ResponseMessage {
         ACCOUNT_DOES_NOT_EXIST,
         WRONG_CREDENTIALS,
         UNVERIFIED_ACCOUNT,
+        WRONG_PASSWORD,
 
         //Success
         ACCOUNT_CREATED,
@@ -64,6 +65,8 @@ public class ResponseMessage {
         PASSWORD_RESTORED,
         ACCOUNT_IS_VERIFIED_OR_DOES_NOT_EXIST,
         VERIFICATION_EMAIL_RESEND,
+        PASSWORD_CHANGED,
+        EMAIL_CHANGED
     }
 }
 

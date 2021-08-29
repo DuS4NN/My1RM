@@ -143,4 +143,38 @@ public class UserService {
 
         return new Response(ResponseMessage.UserResponseMessage.VERIFICATION_EMAIL_RESEND, null);
     }
+
+    @Transactional
+    public Response changePassword(User user, String oldPassword, String newPassword){
+        if(!argon2PasswordEncoder.matches(oldPassword, user.getPassword())) return new Response(ResponseMessage.UserResponseMessage.WRONG_PASSWORD,null);
+        if(!user.isVerified()) return new Response(ResponseMessage.UserResponseMessage.UNVERIFIED_ACCOUNT, null);
+
+        user.setPassword(argon2PasswordEncoder.encode(newPassword));
+        entityManager.merge(user);
+
+        return new Response(ResponseMessage.UserResponseMessage.PASSWORD_CHANGED,null);
+    }
+
+    @Transactional
+    public Response changeEmail(User user, String newEmail, String password){
+        if(!argon2PasswordEncoder.matches(password, user.getPassword())) return new Response(ResponseMessage.UserResponseMessage.WRONG_PASSWORD,null);
+        String oldEmail = user.getEmail();
+
+        user.setEmail(newEmail);
+        user.setVerified(false);
+        entityManager.merge(user);
+
+        Token token = new Token();
+        token.setUser(user);
+        token.setType(TokenType.CONFIRM_EMAIL);
+        token.setHash(DigestUtils.sha256Hex(user.getEmail() + RandomString.make(10)));
+        entityManager.persist(token);
+
+        String emailContent = token.getHash();
+
+        api.sendEmail("Tvoj email bol zmeneny na novy, ktory je potrebne overit..", oldEmail, "My1RM Email changed");
+        api.sendEmail(emailContent, newEmail, "My1RM Verification Email");
+
+        return new Response(ResponseMessage.UserResponseMessage.EMAIL_CHANGED, null);
+    }
 }
