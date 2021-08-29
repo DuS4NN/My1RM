@@ -6,7 +6,7 @@ import com.my1rm.model.ResponseMessage;
 import com.my1rm.model.database.Language;
 import com.my1rm.model.database.Token;
 import com.my1rm.model.database.User;
-import com.my1rm.model.database.UserOptions;
+import com.my1rm.model.database.UserOption;
 import com.my1rm.model.types.TokenType;
 import com.my1rm.model.types.WeightUnit;
 import com.my1rm.repository.LanguageRepository;
@@ -49,11 +49,11 @@ public class UserService {
         account.setVerified(false);
         entityManager.persist(account);
 
-        UserOptions userOptions = new UserOptions();
-        userOptions.setLanguage(language.get());
-        userOptions.setUser(account);
-        userOptions.setWeight_unit(WeightUnit.KG);
-        entityManager.persist(userOptions);
+        UserOption userOption = new UserOption();
+        userOption.setLanguage(language.get());
+        userOption.setUser(account);
+        userOption.setWeight_unit(WeightUnit.KG);
+        entityManager.persist(userOption);
 
         Token token = new Token();
         token.setUser(account);

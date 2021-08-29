@@ -1,7 +1,6 @@
 package com.my1rm.controller;
 
 import com.my1rm.configuration.Authentication.CustomUserDetails;
-import com.my1rm.model.database.Exercise;
 import com.my1rm.model.database.User;
 import com.my1rm.repository.UserRepository;
 import org.json.JSONObject;

@@ -4,6 +4,7 @@ import com.my1rm.model.ResponseMessage;
 import com.my1rm.model.types.WeightUnit;
 import com.my1rm.validator.ValidatorResponse;
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserOptions {
+public class UserOption {
 
     @Id
     @Column(name = "id")

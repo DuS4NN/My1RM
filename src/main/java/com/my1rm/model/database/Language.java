@@ -29,6 +29,6 @@ public class Language {
     @NotNull
     private String image_url;
 
-    @OneToMany(targetEntity = UserOptions.class, fetch = FetchType.LAZY, mappedBy = "language", cascade = CascadeType.ALL)
-    private Set<UserOptions> userOptions;
+    @OneToMany(targetEntity = UserOption.class, fetch = FetchType.LAZY, mappedBy = "language", cascade = CascadeType.ALL)
+    private Set<UserOption> userOptions;
 }

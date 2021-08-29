@@ -54,7 +54,7 @@ public enum ValidationItems {
     UserOptionsWeightUnit{
         @Override
         public ValidatorResponse validate(Object weightUnit) {
-            return UserOptions.isWeightUnitValid((String) weightUnit);
+            return UserOption.isWeightUnitValid((String) weightUnit);
         }
     };
 

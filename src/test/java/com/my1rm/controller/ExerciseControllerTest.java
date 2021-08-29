@@ -37,8 +37,7 @@ class ExerciseControllerTest {
 
     private RequestPostProcessor user = null;
     private long exerciseId = 0;
-    private final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));;
-
+    private final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
 
     @PostConstruct
     private void createTestUser(){

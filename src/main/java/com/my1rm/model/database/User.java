@@ -47,8 +47,8 @@ public class User {
     @OneToMany(targetEntity = Token.class, fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Token> token;
 
-    @OneToMany(targetEntity = UserOptions.class, fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<UserOptions> userOption;
+    @OneToMany(targetEntity = UserOption.class, fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<UserOption> userOption;
 
     @OneToMany(targetEntity = Season.class, fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Season> season;

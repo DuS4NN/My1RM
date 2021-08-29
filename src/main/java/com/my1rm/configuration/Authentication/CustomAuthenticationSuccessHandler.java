@@ -3,7 +3,7 @@ package com.my1rm.configuration.Authentication;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.my1rm.api.API;
 import com.my1rm.model.database.User;
-import com.my1rm.model.database.UserOptions;
+import com.my1rm.model.database.UserOption;
 import com.my1rm.model.types.WeightUnit;
 import com.my1rm.repository.LanguageRepository;
 import com.my1rm.repository.UserOptionsRepository;
@@ -40,7 +40,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
         Map<String, Object> data = new HashMap<>();
 
-        Optional<UserOptions> userOptions = userOptionsRepository.findByUser(user);
+        Optional<UserOption> userOptions = userOptionsRepository.findByUser(user);
         if(userOptions.isPresent()){
             data.put("languageId", userOptions.get().getLanguage().getId());
             data.put("weightUnit", userOptions.get().getWeight_unit());
