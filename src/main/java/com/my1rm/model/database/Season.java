@@ -31,7 +31,7 @@ public class Season {
     @NotNull
     private User user;
 
-    @Column(name = "name", columnDefinition = "VARCHAR(15)")
+    @Column(name = "name", columnDefinition = "VARCHAR(50)")
     @NotNull
     private String name;
 
@@ -48,7 +48,7 @@ public class Season {
 
     public static ValidatorResponse isNameValid(String name){
         if(name == null) return new ValidatorResponse(false, ResponseMessage.CommonResponseMessage.MISSING_DATA);
-        if(name.length() < 3 || name.length() < 16) return new ValidatorResponse(false, ResponseMessage.SeasonResponseMessage.NAME_INCORRECT_LENGTH);
+        if(name.length() < 3 || name.length() < 51) return new ValidatorResponse(false, ResponseMessage.SeasonResponseMessage.NAME_INCORRECT_LENGTH);
         if(!Pattern.compile("[A-Z,a-z,\\-,_, ,.,0-9]*").matcher(name).matches()) return new ValidatorResponse(false, ResponseMessage.SeasonResponseMessage.NAME_INCORRECT_FORMAT);
 
         return new ValidatorResponse(true, null);
