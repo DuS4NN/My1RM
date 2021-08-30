@@ -39,17 +39,18 @@ public class ExerciseService {
              sortField = new SortField[] {bestUserAttempts.field("bestAttempt").desc()};
         }
 
-        List<GetAllExercisesPOJO> result = dslContext.select(com.my1rm.jooq.tables.Exercise.EXERCISE.ID.as("exerciseId"),
-                        com.my1rm.jooq.tables.Exercise.EXERCISE.GOAL.as("exerciseGoal"),
-                        com.my1rm.jooq.tables.Exercise.EXERCISE.NAME.as("exerciseName"),
-                        bestUserAttempts.field("bestAttempt").as("bestAttempt"))
-                .from(com.my1rm.jooq.tables.Exercise.EXERCISE)
-                .leftJoin(bestUserAttempts)
-                    .on(com.my1rm.jooq.tables.Exercise.EXERCISE.ID
-                        .eq(DSL.coerce(bestUserAttempts.field("exerciseId"), Long.class)))
-                .where(com.my1rm.jooq.tables.Exercise.EXERCISE.USER_ID.eq(userId))
-                .orderBy(sortField)
-                .fetchInto(GetAllExercisesPOJO.class);
+        List<GetAllExercisesPOJO> result = dslContext
+            .select(
+                com.my1rm.jooq.tables.Exercise.EXERCISE.ID.as("exerciseId"),
+                com.my1rm.jooq.tables.Exercise.EXERCISE.GOAL.as("exerciseGoal"),
+                com.my1rm.jooq.tables.Exercise.EXERCISE.NAME.as("exerciseName"),
+            bestUserAttempts.field("bestAttempt").as("bestAttempt"))
+            .from(com.my1rm.jooq.tables.Exercise.EXERCISE)
+            .leftJoin(bestUserAttempts)
+                .on(com.my1rm.jooq.tables.Exercise.EXERCISE.ID.eq(DSL.coerce(bestUserAttempts.field("exerciseId"), Long.class)))
+            .where(com.my1rm.jooq.tables.Exercise.EXERCISE.USER_ID.eq(userId))
+            .orderBy(sortField)
+            .fetchInto(GetAllExercisesPOJO.class);
 
         return new Response(ResponseMessage.CommonResponseMessage.SUCCESS, result);
     }
@@ -57,9 +58,9 @@ public class ExerciseService {
     @Transactional
     public Response addExercise(Exercise exercise, User user){
         Optional<Exercise> maybeExercise = exerciseRepository.findByNameAndUser(exercise.getName(), user);
-        if(maybeExercise.isPresent()) return new Response(ResponseMessage.ExerciseResponseMessage.NAME_ALREADY_EXISTS ,null);
+        if(maybeExercise.isPresent()) return new Response(ResponseMessage.ExerciseResponseMessage.NAME_ALREADY_EXISTS,null);
 
-        if(exerciseRepository.countAllByUser(user) >= 30) return new Response(ResponseMessage.ExerciseResponseMessage.MAXIMUM_NUMBER_OF_EXERCISES ,null);
+        if(exerciseRepository.countAllByUser(user) >= 30) return new Response(ResponseMessage.ExerciseResponseMessage.MAXIMUM_NUMBER_OF_EXERCISES,null);
 
         Exercise newExercise = new Exercise();
         newExercise.setGoal(exercise.getGoal());

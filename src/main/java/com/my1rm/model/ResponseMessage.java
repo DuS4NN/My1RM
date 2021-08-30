@@ -11,6 +11,7 @@ public class ResponseMessage {
         USER_NOT_FOUND,
         TOKEN_NOT_FOUND,
         EXERCISE_NOT_FOUND,
+        SEASON_NOT_FOUND,
         MISSING_DATA,
     }
 
@@ -42,7 +43,13 @@ public class ResponseMessage {
         NAME_INCORRECT_FORMAT,
         COLOR_INCORRECT_DATA,
 
+        NAME_ALREADY_EXISTS,
+        MAXIMUM_NUMBER_OF_SEASONS,
+
         //Success
+        SEASON_CREATED,
+        SEASON_UPDATED,
+        SEASON_REMOVED,
     }
 
     public enum UserResponseMessage {
