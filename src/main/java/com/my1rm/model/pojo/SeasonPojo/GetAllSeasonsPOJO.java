@@ -1,4 +1,4 @@
-package com.my1rm.model.pojo.AttemptPojo;
+package com.my1rm.model.pojo.SeasonPojo;
 
 import java.sql.Timestamp;
 

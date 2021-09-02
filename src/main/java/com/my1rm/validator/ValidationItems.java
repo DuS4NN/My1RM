@@ -2,6 +2,8 @@ package com.my1rm.validator;
 
 import com.my1rm.model.database.*;
 
+import java.util.Date;
+
 public enum ValidationItems {
     AttemptWeight{
         @Override
@@ -12,7 +14,7 @@ public enum ValidationItems {
     AttemptRepetitions{
         @Override
         public ValidatorResponse validate(Object repetitions) {
-            return Attempt.isRepetitionsValid((int) repetitions);
+            return Attempt.isRepetitionsValid((short) repetitions);
         }
     },
     ExerciseName{

@@ -5,7 +5,6 @@ import com.my1rm.model.Response;
 import com.my1rm.model.database.User;
 import com.my1rm.validator.ValidationItems;
 import com.my1rm.validator.ValidatorResponse;
-import io.sentry.Sentry;
 import lombok.AllArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -21,6 +20,8 @@ import java.util.Optional;
 @AllArgsConstructor
 @Component
 public class API {
+
+    public static final int ITEMS_ON_PAGE = 10;
 
     private JavaMailSenderImpl mailSender;
 

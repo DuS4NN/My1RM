@@ -13,6 +13,7 @@ public class ResponseMessage {
         EXERCISE_NOT_FOUND,
         SEASON_NOT_FOUND,
         MISSING_DATA,
+        ATTEMPT_NOT_FIND,
     }
 
     public enum AttemptResponseMessage {
@@ -21,6 +22,8 @@ public class ResponseMessage {
         REPETITIONS_INCORRECT_DATA,
 
         //Success
+        ATTEMPT_CREATED,
+        ATTEMPT_REMOVED,
     }
 
     public enum ExerciseResponseMessage {

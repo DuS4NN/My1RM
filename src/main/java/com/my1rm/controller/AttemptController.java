@@ -3,29 +3,49 @@ package com.my1rm.controller;
 import com.my1rm.annotation.CatchError;
 import com.my1rm.api.API;
 import com.my1rm.model.Response;
+import com.my1rm.model.database.Attempt;
 import com.my1rm.model.database.User;
-import com.my1rm.model.ResponseMessage;
+import com.my1rm.service.AttemptService;
 import com.my1rm.validator.ValidationItems;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Optional;
 
+@AllArgsConstructor
 @RestController
 public class AttemptController {
 
-    @GetMapping(path = "/test")
+    private AttemptService attemptService;
+
     @CatchError
-    public Response test(String name, String password, User user) {
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping(path = "/attempt/getAttempts")
+    public Response getAttempts(Authentication authentication, @RequestParam(name = "exerciseId") long exerciseId, @RequestParam(name = "page") int page) {
+        User user = API.getUserFromAuthentication(authentication);
+        return attemptService.getAttempts(user.getId(), exerciseId, page);
+    }
 
+    @CatchError
+    @PreAuthorize("isAuthenticated()")
+    @PostMapping(path = "/attempt/addAttempt")
+    public Response addAttempt(Authentication authentication, @RequestBody Attempt attempt, @RequestParam(name = "exerciseId") long exerciseId, @RequestParam(name = "seasonId") long seasonId){
+        User user = API.getUserFromAuthentication(authentication);
         Optional<Response> response = API.validate(new HashMap<ValidationItems, Object>() {{
-            put(ValidationItems.UserEmail, "dusan7991@gmail.com");
+            put(ValidationItems.AttemptRepetitions, attempt.getRepetitions());
+            put(ValidationItems.AttemptWeight, attempt.getWeight());
         }});
-        if(response.isPresent()) return response.get();
+        return response.orElseGet(() -> attemptService.addAttempt(user, attempt, exerciseId, seasonId));
+    }
 
-        //dd
-
-        return new Response(ResponseMessage.CommonResponseMessage.SUCCESS, "AHOJ");
+    @CatchError
+    @PreAuthorize("isAuthenticated()")
+    @DeleteMapping(path = "/attempt/removeAttempt")
+    public Response addAttempt(Authentication authentication, @RequestParam(name = "attemptId") long attemptId){
+        User user = API.getUserFromAuthentication(authentication);
+        return attemptService.removeAttempt(user, attemptId);
     }
 }

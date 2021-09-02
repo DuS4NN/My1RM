@@ -6,7 +6,7 @@ import com.my1rm.model.Response;
 import com.my1rm.model.ResponseMessage;
 import com.my1rm.model.database.Season;
 import com.my1rm.model.database.User;
-import com.my1rm.model.pojo.AttemptPojo.GetAllSeasonsPOJO;
+import com.my1rm.model.pojo.SeasonPojo.GetAllSeasonsPOJO;
 import com.my1rm.repository.AttemptRepository;
 import com.my1rm.repository.SeasonRepository;
 import lombok.AllArgsConstructor;

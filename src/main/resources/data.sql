@@ -47,4 +47,4 @@ INSERT INTO `attempt` (`id`, `repetitions`, `success`, `weight`, `exercise_id`, 
 (25, 1, 1, 135.0, 16, 10, 4, '2021-08-24 08:52:55');
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(25);
+(26);

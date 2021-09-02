@@ -1,16 +1,15 @@
 package com.my1rm.model.database;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.my1rm.model.ResponseMessage;
 import com.my1rm.validator.ValidatorResponse;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "ATTEMPT")
@@ -52,6 +51,7 @@ public class Attempt {
     private short repetitions;
 
     @Column(name = "date", columnDefinition = "TIMESTAMP")
+    @JsonFormat(pattern="yyyy-MM-dd")
     @NotNull
     private Date date;
 
