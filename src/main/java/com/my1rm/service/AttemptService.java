@@ -8,11 +8,15 @@ import com.my1rm.model.database.Exercise;
 import com.my1rm.model.database.Season;
 import com.my1rm.model.database.User;
 import com.my1rm.model.pojo.AttemptPojo.GetAttemptsPOJO;
+import com.my1rm.model.pojo.AttemptPojo.GetBestAttemptPOJO;
+import com.my1rm.model.pojo.AttemptPojo.GetDataForGraphPOJO;
 import com.my1rm.repository.AttemptRepository;
 import com.my1rm.repository.ExerciseRepository;
 import com.my1rm.repository.SeasonRepository;
 import lombok.AllArgsConstructor;
+import org.jooq.Condition;
 import org.jooq.DSLContext;
+import org.jooq.impl.DSL;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -30,6 +34,55 @@ public class AttemptService {
     private ExerciseRepository exerciseRepository;
     private DSLContext dslContext;
     private EntityManager entityManager;
+
+    public Response getDataForGraph(long userId, long exerciseId, String success, long seasonId, short repetitions){
+
+        Condition where = DSL.trueCondition();
+        switch (success){
+            case "SUCCESS":
+                where.and(com.my1rm.jooq.tables.Attempt.ATTEMPT.SUCCESS.eq((byte) 1));
+                break;
+            case "FAIL":
+                where.and(com.my1rm.jooq.tables.Attempt.ATTEMPT.SUCCESS.eq((byte) 0));
+                break;
+        }
+
+        if(seasonId != 0) where.and(com.my1rm.jooq.tables.Attempt.ATTEMPT.SEASON_ID.eq(seasonId));
+
+        List<GetDataForGraphPOJO> result = dslContext
+            .select(
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.ID.as("attemptId"),
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.DATE.as("attemptDate"),
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.WEIGHT.as("attemptWeight"),
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.SUCCESS.as("attemptSuccess"),
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.REPETITIONS.as("attemptRepetitions"))
+            .from(com.my1rm.jooq.tables.Attempt.ATTEMPT)
+            .where(where)
+            .and(com.my1rm.jooq.tables.Attempt.ATTEMPT.REPETITIONS.eq(repetitions))
+            .and(com.my1rm.jooq.tables.Attempt.ATTEMPT.USER_ID.eq(userId))
+            .and(com.my1rm.jooq.tables.Attempt.ATTEMPT.EXERCISE_ID.eq(exerciseId))
+            .orderBy(com.my1rm.jooq.tables.Attempt.ATTEMPT.DATE.desc())
+            .fetchInto(GetDataForGraphPOJO.class);
+
+        return new Response(ResponseMessage.CommonResponseMessage.SUCCESS, result);
+    }
+
+    public Response getBestAttempt(long userId, long exerciseId){
+        GetBestAttemptPOJO result = dslContext
+            .select(
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.DATE.as("attemptDate"),
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.WEIGHT.as("attemptWeight"),
+                com.my1rm.jooq.tables.Attempt.ATTEMPT.REPETITIONS.as("attemptRepetitions"))
+            .from(com.my1rm.jooq.tables.Attempt.ATTEMPT)
+            .where(com.my1rm.jooq.tables.Attempt.ATTEMPT.USER_ID.eq(userId))
+            .and(com.my1rm.jooq.tables.Attempt.ATTEMPT.EXERCISE_ID.eq(exerciseId))
+            .and(com.my1rm.jooq.tables.Attempt.ATTEMPT.SUCCESS.eq((byte) 1))
+            .orderBy(com.my1rm.jooq.tables.Attempt.ATTEMPT.WEIGHT.desc(), com.my1rm.jooq.tables.Attempt.ATTEMPT.REPETITIONS.desc(), com.my1rm.jooq.tables.Attempt.ATTEMPT.DATE.asc())
+            .limit(1)
+            .fetchOneInto(GetBestAttemptPOJO.class);
+
+        return new Response(ResponseMessage.CommonResponseMessage.SUCCESS, result);
+    }
 
     public Response getAttempts(long userId, long exerciseId, int page){
         List<GetAttemptsPOJO> result = dslContext

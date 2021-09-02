@@ -23,6 +23,22 @@ public class AttemptController {
 
     @CatchError
     @PreAuthorize("isAuthenticated()")
+    @GetMapping(path = "/attempt/getDataForGraph")
+    public Response getDataForGraph(Authentication authentication, @RequestParam(name = "exerciseId") long exerciseId, @RequestParam(name = "seasonId") long seasonId, @RequestParam(name = "success") String success, @RequestParam(name = "repetitions") short repetitions){
+        User user = API.getUserFromAuthentication(authentication);
+        return attemptService.getDataForGraph(user.getId(), exerciseId, success, seasonId, repetitions);
+    }
+
+    @CatchError
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping(path = "/attempt/getBestAttempt")
+    public Response getBestAttempt(Authentication authentication, @RequestParam(name = "exerciseId") long exerciseId){
+        User user = API.getUserFromAuthentication(authentication);
+        return attemptService.getBestAttempt(user.getId(), exerciseId);
+    }
+
+    @CatchError
+    @PreAuthorize("isAuthenticated()")
     @GetMapping(path = "/attempt/getAttempts")
     public Response getAttempts(Authentication authentication, @RequestParam(name = "exerciseId") long exerciseId, @RequestParam(name = "page") int page) {
         User user = API.getUserFromAuthentication(authentication);
